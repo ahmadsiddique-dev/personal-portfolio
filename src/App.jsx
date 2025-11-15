@@ -3,8 +3,9 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Bio from './components/Bio'
-import Projects from './components/Projects'
-import Contact from './Contact'
+import Projects from './components/ProjectSection'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,7 +21,9 @@ function App() {
         <Projects />
         <Contact />
       </main>
-      
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }

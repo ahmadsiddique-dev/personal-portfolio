@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
       {/* NAV ITEMS */}
       <ul className="flex items-center gap-3 md:gap-6">
         <li className="neumorphic-button px-4 py-2 hover:scale-[1.04] active:scale-95 transition">
-          Projects
+          <Link to={"/project"}>Projects</Link>
         </li>
         <li className="neumorphic-button px-4 py-2 hover:scale-[1.04] active:scale-95 transition">
           Contact

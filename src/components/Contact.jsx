@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { FaGithub, FaLinkedin, FaFacebook, } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 const Contact = () => {
   const {
@@ -7,42 +9,61 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
 
+  const contactItems = [
+    {
+      name : <MdEmail />,
+      slul : ""
+    },
+    {
+      name : <FaLinkedin />,
+      slug : ""
+    },
+    {
+      name : <FaGithub />,
+      slug : ""
+    },
+    {
+      name : <FaFacebook />,
+      slug : ""
+    }
+  ]
   const onSubmit = (data) => {
     console.log(data);
   };
   return (
     <center>
   <section className="w-full py-12 px-4">
-    {/* HEADING */}
     <div className="text-center">
       <h2 className="text-xl md:text-3xl font-bold text-white bg-amber-500 inline-block px-6 py-3 rounded-lg shadow-lg">
         Have a Query?
       </h2>
     </div>
 
-    {/* GRID */}
     <div className="grid md:grid-cols-12 gap-6 mt-10 max-w-5xl mx-auto">
-      {/* LEFT SIDE */}
       <div className="md:col-span-6 bg-amber-500 text-white flex flex-col justify-center p-6 rounded-xl shadow-lg">
-        <h3 className="text-2xl font-semibold mb-2">Let’s Talk</h3>
-        <p className="text-white/90 leading-relaxed">
-          Feel free to reach out to us for any kind of questions, feedback,
-          collaboration, or support. We typically respond within 24 hours.
-        </p>
+        <h3 className="text-2xl font-semibold mb-2">If U Follow...</h3>
+        <div>
+          <ul className="flex justify-center items-center gap-3.5">
+            {contactItems.map((e, i) => 
+            <li><a key={i} href={e.slug} className="text-4xl">{e.name}</a></li>
+            )}
+
+          </ul>
+        </div>
 
         {/* Extra design elements */}
         <div className="mt-6 space-y-2">
           <div className="flex items-center gap-3">
             <span className="w-3 h-3 bg-white rounded-full"></span>
-            <p className="text-white/90">Quick Response</p>
+            <p className="text-white/90">Response in 24 hours.</p>
           </div>
           <div className="flex items-center gap-3">
             <span className="w-3 h-3 bg-white rounded-full"></span>
-            <p className="text-white/90">Friendly Support</p>
+            <p className="text-white/90">Sometime Late.</p>
           </div>
           <div className="flex items-center gap-3">
             <span className="w-3 h-3 bg-white rounded-full"></span>
-            <p className="text-white/90">Professional Guidance</p>
+            <p className="text-white/90">Generous Response.</p>
           </div>
         </div>
       </div>
