@@ -9,17 +9,17 @@ const Bio = () => {
   const handleClick = () => {
     setExpanded(!expanded);
 
-    // Optional: scroll content into view when expanded
     if (!expanded && contentRef.current) {
       setTimeout(() => {
         contentRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 200);
+      }, 200); 
     }
   };
 
   return (
     <div className="max-w-3xl mx-auto p-2 sm:p-6 shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">Know Me More!</h2>
+      
+      <h2 className="text-xl md:text-3xl ml-7 font-bold text-white bg-amber-500 inline-block px-6 py-3 rounded-lg shadow-lg">Know Me More!</h2>
 
       <div className="relative">
         {/* Content */}

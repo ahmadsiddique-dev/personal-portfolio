@@ -2,21 +2,27 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="neumorphic text mt-5 flex justify-between w-[90vw] md:w-[65vw] mx-auto pr-2 md:pr-7 items-center">
-      <div className="w-16 h-16 overflow-hidden rounded-full">
+    <nav className="neumorphic mt-6 w-[92vw] md:w-[70vw] mx-auto px-4 md:px-8 py-3 flex justify-between items-center shadow-lg backdrop-blur-lg">
+      
+      {/* LOGO */}
+      <div className="w-16 h-16 overflow-hidden rounded-full shadow-md">
         <img
-          className="w-full h-full object-contain"
-          src="https://ahmadsiddique.vercel.app/assets/profile.png"
+          className="w-full h-full object-cover"
+          src="/logo.jpeg"
           alt="logo-picture"
         />
       </div>
-      <div>
-        <ul className="flex items-center gap-4">
-          <li className="px-4 py-4 neumorphic-button">Projects</li>
-          <li className="px-4 py-4 neumorphic-button">Contact</li>
-        </ul>
-      </div>
-    </div>
+
+      {/* NAV ITEMS */}
+      <ul className="flex items-center gap-3 md:gap-6">
+        <li className="neumorphic-button px-4 py-2 hover:scale-[1.04] active:scale-95 transition">
+          Projects
+        </li>
+        <li className="neumorphic-button px-4 py-2 hover:scale-[1.04] active:scale-95 transition">
+          Contact
+        </li>
+      </ul>
+    </nav>
   );
 };
 

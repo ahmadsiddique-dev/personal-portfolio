@@ -2,28 +2,32 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="">
-      <div className="flex items-center md:max-w-[65vw] mx-auto md:gap-0 gap-9 justify-around flex-col md:flex-row">
-        <div className="w-64  h-64">
+    <section className="w-full py-12 md:py-20">
+      <div className="flex flex-col md:flex-row items-center justify-around mx-auto md:max-w-[65vw] gap-10 md:gap-0">
+
+        {/* Profile Image */}
+        <div className="w-60 h-60 md:w-64 md:h-64 animate-fadeIn">
           <img
-            className="object-contain rounded-full w-full h-full"
+            className="w-full h-full object-cover rounded-full shadow-xl"
             src="https://ahmadsiddique.vercel.app/assets/profile.png"
-            alt="profile-picture"
+            alt="profile"
           />
         </div>
-        <div>
-          <h1 className=" text-center flex items-center flex-col justify-end text-4xl">
-            <div>
-                Yes, I'm
-            </div>
-            <div className="metallic-text momo-signature-regular">
-              <div className="">Ahmad</div>
-              <div>Siddique</div>
-            </div>
+
+        {/* Hero Text */}
+        <div className="text-center md:text-left animate-slideUp">
+          <h1 className="text-4xl md:text-5xl font-bold leading-snug">
+            <span className="block text-gray-700 metallic-text2">
+              Yes, I'm
+            </span>
+
+            <span className="block metallic-text momo-signature-regular">
+              Ahmad <br /> Siddique
+            </span>
           </h1>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
