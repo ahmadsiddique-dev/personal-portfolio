@@ -35,12 +35,13 @@ const Projects = () => {
   ];
 
   return (
+    <center>
     <div className="mt-12 relative">
-      <h1 className="md:text-2xl mb-20 shadow-lg my-4 rounded-lg text-xl font-bold sm:my-12 sm:max-w-3xs text-center px-2 py-2 text-white bg-amber-500">
+      <h1 className="md:text-4xl mb-20 shadow-lg my-4 rounded-lg text-xl font-bold sm:my-12 sm:max-w-[300px] text-center px-2 py-2 text-white bg-amber-500">
         C MY Projects
       </h1>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:p-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 container max-w-[85vw] gap-6 md:p-6">
         {projectData.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
@@ -53,6 +54,7 @@ const Projects = () => {
         </div>
       </Link>
     </div>
+    </center>
   );
 };
 

@@ -1,0 +1,26 @@
+{
+  "name": "ahmad-portfolio-backend",
+  "version": "1.0.0",
+  "description": "This is a backend of Ahmad's portfolio website intended to control messsages on our own without any third party integrantion and If in future we can introduce more functionality in website.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ahamd's",
+    "website",
+    "portfolio"
+  ],
+  "author": "Ahmad Siddique",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "env": "^0.0.2",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.4",
+    "nodemo": "^1.0.0",
+    "nodemon": "^3.1.11"
+  }
+}

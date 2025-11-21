@@ -30,6 +30,7 @@ const ProjectCard = ({
         {subtitle && <p className="text-gray-500 text-sm mb-2">{subtitle}</p>}
         <p className="text-gray-700 text-sm mb-4">{description}</p>
 
+        <center>
         <div className="flex flex-wrap gap-2">
           {techs.map((tech, index) => (
             <span
@@ -37,9 +38,9 @@ const ProjectCard = ({
               className="bg-gray-100 neumorphic-capsol text-gray-800 px-2 py-1 rounded-full text-xs font-medium"
             >
               {tech}
-            </span>
+            </span>     
           ))}
-        </div>
+        </div></center>
       </div>
     </div>
   );
