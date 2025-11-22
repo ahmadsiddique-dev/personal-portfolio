@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import CustomError from "../utils/custom.error.js";
 
+// You know what is it doing it is obvious from name.
+
 const dbConnection = async () => {
     try {
         const conInstance = await mongoose.connect(`${process.env.MONGODB_URI}/messages`)

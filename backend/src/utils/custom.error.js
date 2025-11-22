@@ -1,3 +1,4 @@
+// Yes to maintain industry standard code.
 class CustomError extends Error {
     constructor(message, statusCode) {
         super(message);

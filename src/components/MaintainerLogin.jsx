@@ -18,21 +18,19 @@ const onSubmit = async (data) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8000/api/v1/login",
+      `${import.meta.env.VITE_B_URL}/login`,
       {
         username: data.username,
         password: data.password,
       },
-      { withCredentials: true } // important for HttpOnly cookies
+      { withCredentials: true } 
     );
     
     if (response.status === 200) {
-      console.log("Login was successful");
       navigate("/dashboard", { replace: true }); 
     }
   } catch (error) {
     console.error("Login error:", error);
-    // Display error message in your component state instead of alert
   } finally {
     setLoading(false);
   }
@@ -46,9 +44,7 @@ const onSubmit = async (data) => {
           Maintainer Login
         </h2>
 
-        {/* FORM */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-          {/* Username */}
           <div>
             <label className="block mb-1">Username</label>
             <input
@@ -65,7 +61,6 @@ const onSubmit = async (data) => {
             )}
           </div>
 
-          {/* Password */}
           <div>
             <label className="block mb-1">Password</label>
             <input
@@ -82,8 +77,6 @@ const onSubmit = async (data) => {
               </span>
             )}
           </div>
-
-          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-amber-500 text-white py-2 rounded-full hover:bg-amber-600 transition"

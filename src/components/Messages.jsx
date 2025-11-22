@@ -8,7 +8,7 @@ const Messages = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8000/api/v1/message-status")
+      .post(`${import.meta.env.VITE_B_URL}/message-status`)
       .then((response) => {
         setMessages(response.data.data);
         console.log(response.data.data)

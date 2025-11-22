@@ -1,7 +1,8 @@
 import { messageModel } from "../models/message.model.js";
 import CustomError from "../utils/custom.error.js";
 import { managerModel } from "../models/manager.model.js";
-import cookieParser from "cookie-parser";
+
+// The one Which Saves messages in the backend.
 
 const messageController = async (req, res) => {
   try {
@@ -26,13 +27,15 @@ const messageController = async (req, res) => {
 };
 
 
+// This one is for the user so that they can know the status of their message.
+// And i used aggeregation so that I just send lenght of the message instead of converting it into length after
   const messageStatusController = async (req, res) => {
     const data = await messageModel.aggregate([
       {
         $project : {
           name : 1,
           track : 1,
-          messageLength : { $strLenCP : "$message"}
+          messageLength : { $strLenCP : "$message"} // That give us the length of messagaes.
         }
       }
     ]);
@@ -43,26 +46,41 @@ const messageController = async (req, res) => {
     })
   }
 
-  const handleDeleteMessage = async (req, res) => {
-    const response = await messageModel.deleteOne({id : req._id})
-    if (!response) throw new CustomError("message not found", 500)
 
-    res.json({
-      success : true,
-      status : 201
-    })
-  }
+  // This is for the maintianer so that he can delete messages as well
 
-  const handleUpdateStatus = async (req, res) => {
-    const response = await messageModel.updateOne({ id : req._id}, {$set : { track : true }})
-    if (!response) throw new CustomError("message not found", 500)
+const handleDeleteMessage = async (req, res) => {
 
-    res.json({
-      success : true,
-      status : 200
-    })
-  }
+  const response = await messageModel.deleteOne({ _id: req.body._id });
 
+  if (response.deletedCount === 0)
+    throw new CustomError("message not found", 500);
+
+  res.json({
+    success: true,
+    status: 201
+  });
+};
+
+
+// Same Mainteiner can update status.
+
+const handleUpdateStatus = async (req, res) => {
+  const response = await messageModel.updateOne(
+    { _id: req.body._id },
+    { $set: { track: true } }
+  );
+
+  if (response.matchedCount === 0)
+    throw new CustomError("message not found", 500);
+
+  res.json({
+    success: true,
+    status: 200
+  });
+};
+
+// This one sends data to the maintiner dashboard.
 
 const dashboardController = async (req, res) => {
   const data = await messageModel.aggregate([
@@ -79,6 +97,8 @@ const dashboardController = async (req, res) => {
     data,
   });
 };
+
+// Before accessing dashboard user should signup
 
 const signupController = async (req, res) => {
   const { username, password } = req.body;
@@ -115,6 +135,7 @@ const signupController = async (req, res) => {
   });
 };
 
+// Maintainers login
 
 const loginController = async (req, res) => {
   const { username, password } = req.body; 
@@ -149,5 +170,8 @@ const loginController = async (req, res) => {
     status: 200,
   });
 };
+
+
+// That's it now these are the exports you know it.
 
 export { messageController, dashboardController, loginController, signupController, messageStatusController, handleDeleteMessage, handleUpdateStatus };

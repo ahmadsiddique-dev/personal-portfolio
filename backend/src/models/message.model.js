@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+// I know what it does if you don't then you're not a fu**g programmer.
+
 const messsageSchema = new mongoose.Schema({
     name : {
         type : String,

@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 
+// I think there is no need to tell anything.U know what's happening here. Ok still if you want to know why i make there methods then go and read readme.md of project.
+
 const managerSchema = new mongoose.Schema({
     username :{
         type : String,
