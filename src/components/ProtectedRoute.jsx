@@ -1,0 +1,28 @@
+import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import axios from "axios";
+
+const ProtectedRoute = ({ children }) => {
+  const [loading, setLoading] = useState(true);
+  const [authorized, setAuthorized] = useState(false);
+  const [userData, setUserData] = useState([])
+
+  useEffect(() => {
+    axios.post("http://localhost:8000/api/v1/dashboard", {}, { withCredentials: true })
+      .then((res) => {
+        if (res.data.success) {
+          setAuthorized(true)
+          setUserData(res.data.data)
+        };
+      })
+      .catch(() => setAuthorized(false))
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (!authorized) return <Navigate to="/login" replace />;
+
+  return React.cloneElement(children, { userData });
+};
+
+export default ProtectedRoute;

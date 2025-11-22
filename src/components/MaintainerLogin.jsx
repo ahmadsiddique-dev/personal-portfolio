@@ -13,28 +13,31 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const onSubmit = async (data) => {
-    setLoading(true);
-    try {
-      axios
-        .post("http://localhost:8000/api/v1/manager", {
-          username : data.username,
-          password : data.password
-        })
-        .then((response) => {
-          console.log(response); 
-        }) 
-        .catch((error) => {   
-          console.log(error);
-        });
-      navigate("manager");
-    } catch (error) {
-      console.error(error);
-      alert("Login failed. Please try again.");
-    } finally {
-      setLoading(false);
+const onSubmit = async (data) => {
+  setLoading(true);
+
+  try {
+    const response = await axios.post(
+      "http://localhost:8000/api/v1/login",
+      {
+        username: data.username,
+        password: data.password,
+      },
+      { withCredentials: true } // important for HttpOnly cookies
+    );
+    
+    if (response.status === 200) {
+      console.log("Login was successful");
+      navigate("/dashboard", { replace: true }); 
     }
-  };
+  } catch (error) {
+    console.error("Login error:", error);
+    // Display error message in your component state instead of alert
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="bg-gray-100 flex items-center justify-center min-h-screen">

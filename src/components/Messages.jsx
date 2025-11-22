@@ -5,16 +5,13 @@ import { useEffect, useState } from "react";
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);
-  const [ahmad, setAmad] = useState({
-    msg : "are you ok sir."
-  })
 
   useEffect(() => {
     axios
-      .post("http://localhost:8000/api/v1/dashboard")
+      .post("http://localhost:8000/api/v1/message-status")
       .then((response) => {
-        setMessages(response.data.data || []);
-        console.log(response.data)
+        setMessages(response.data.data);
+        console.log(response.data.data)
       })
       .catch((error) => {
         console.log(error);
@@ -34,21 +31,21 @@ const Messages = () => {
         Message Status
       </h1>
 
-      <div className="flex flex-col gap-4 mt-6">
+      <div className="flex flex-col container lg:max-w-[50vw] md:max-w-[65vw] sm:max-w-[85vw] max-w-[90vw] m-auto gap-4 mt-6">
         {messages.map((msg, index) => (
           <div
             key={index}
-            className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition"
+            className="bg-white p-4 rounded-xl container m-auto max-w-[90vw] shadow-sm hover:shadow-md transition"
           >
             <div className="flex items-start justify-between">
               <p className="font-semibold text-gray-800 text-sm">{msg.name}</p>
               <div className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full text-xs font-medium text-gray-800">
                 status
-              <IoCheckmarkDone className={msg.track && "text-blue-500" } size={15} />
+              <IoCheckmarkDone className={msg.track && "text-blue-600" } size={15} />
               </div>
             </div>
 
-            <p className="text-gray-700 text-sm mt-2">{"*".repeat(msg.message.length)}</p>
+            <p className="text-gray-700 wrap-break-word text-sm mt-2">{"*".repeat(msg.messageLength)}</p>
           </div>
         ))}
       </div>

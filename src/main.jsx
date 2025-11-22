@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Messages from "./components/Messages.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import Login from "./components/MaintainerLogin.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,15 +24,17 @@ const router = createBrowserRouter([
     element : <Messages />
   }, 
   {
-    path : "/dashboard",
+    path : "/login",
     element : <Login />,
-    children : [
-      {
-        path : "manager",
-        element : <Dashboard />
-      }
-    ]
-
+    
+  },
+  {
+    path : "/dashboard",
+    element : (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    )
   }
 ]);
 
