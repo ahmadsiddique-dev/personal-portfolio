@@ -104,29 +104,36 @@ Want to run this locally?
 
 1. **Clone the repo**
    ```bash
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+   git clone https://github.com/ahmadsiddique-dev/personal-portfolio
    ```
    **Install Dependencies (Frontend & Backend)**
    ```bash
-   cd client && npm install
-   cd ../server && npm install
-    ```
+   # For Frontend:
+   npm install
+   npm run dev
+   ```
+   ```bash
+   # For Backend:
+   cd personal-portfolio/backend
+   npm install
+   node --watch index.js or nodemon index.js
+   ```
+
     **Setup Environment Variables Create a .env file in the server folder:**
-    ```env
-    PORT=8000
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_jwt_secret_key
-    ```
-    Run the App
+    
+    variables are mention in the `.sample.env` file. So you can see over there
+
     ```bash
     # Start Backend
-    cd server
     npm start
     ```
 
     ```bash
     # Start Frontend
-    cd client
     npm run dev 
     ```
     Open your browser and navigate to `http://localhost:5173` to see the portfolio. 
+
+## 🤝 _Contributing_
+
+Feel free to fork the repository and submit pull requests. Whether it's fixing bugs, improving documentation, or adding new features, your contributions are welcome!
