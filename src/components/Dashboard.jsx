@@ -23,14 +23,10 @@ const Dashboard = ({ userData }) => {
   };
 
   const handleDelete = (_id) => {
-    console.log("ID : ", _id)
       axios.delete(
         `${import.meta.env.VITE_B_URL}/delete-message`,
         { data: { _id } }
-      )
-      .then((res) => {
-          console.log(res.data);
-      })  
+      ) 
       .catch((error) => {
         console.log(error)
       }) 

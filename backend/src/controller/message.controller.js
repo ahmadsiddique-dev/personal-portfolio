@@ -16,13 +16,13 @@ const messageController = async (req, res) => {
       name: name,
       email: email,
       message: message,
-    });
+    }); 
 
     res.json({
       response: response,
     });
   } catch (error) {
-    throw new CustomError(error.message);
+    throw new CustomError(error.message, 500);
   }
 };
 
@@ -139,7 +139,6 @@ const signupController = async (req, res) => {
 
 const loginController = async (req, res) => {
   const { username, password } = req.body; 
-  console.log(username, password)
 
   if (!username || !password)
     throw new CustomError("Missing Credientials", 400)

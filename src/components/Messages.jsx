@@ -11,7 +11,6 @@ const Messages = () => {
       .post(`${import.meta.env.VITE_B_URL}/message-status`)
       .then((response) => {
         setMessages(response.data.data);
-        console.log(response.data.data)
       })
       .catch((error) => {
         console.log(error);

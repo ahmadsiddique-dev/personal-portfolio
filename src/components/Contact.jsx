@@ -33,7 +33,7 @@ const Contact = () => {
     const { name, email, message } = formData;
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/message",
+        `${import.meta.env.VITE_B_URL}/message`,
         { name, email, message }
       );
 

@@ -6,13 +6,12 @@ import CustomError from "../utils/custom.error.js";
 const dbConnection = async () => {
     try {
         const conInstance = await mongoose.connect(`${process.env.MONGODB_URI}/messages`)
-        console.log("HOST : ", conInstance.connection.host)
     } catch (error) {
         throw new CustomError(
         `DBCONNECTION :: ERROR :: ${error.message || "Unable to setup DB"}`,
-        error.code || 500
+        error.code || 500 
     );
     }
 }
-
+ 
 export default dbConnection;
