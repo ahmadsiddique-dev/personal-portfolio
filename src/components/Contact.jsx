@@ -22,10 +22,10 @@ const Contact = () => {
   } = useForm();
 
   const contactItems = [
-    { name: <MdEmail />, slug: "" },
-    { name: <FaLinkedin />, slug: "" },
-    { name: <FaGithub />, slug: "" },
-    { name: <FaFacebook />, slug: "" },
+    { name: <MdEmail />, slug: "ahmadsiddique.dev@gmail.com" },
+    { name: <FaLinkedin />, slug: "https://www.linkedin.com/in/ahmad-siddique-dev" },
+    { name: <FaGithub />, slug: "https://github.com/ahmadsiddique-dev" },
+    { name: <FaFacebook />, slug: "https://www.facebook.com/ahmad.siddique.654365" },
   ];
 
   const onSubmit = async (formData) => {
@@ -60,7 +60,7 @@ const Contact = () => {
 
   return (
     <center>
-      <section className="w-full py-12 px-4">
+      <section id="contact-section" className="w-full py-12 px-4">
         <div className="text-center">
           <h2 className="text-xl md:text-3xl font-bold text-white bg-amber-500 inline-block px-6 py-3 rounded-lg shadow-lg">
             Have a Query?

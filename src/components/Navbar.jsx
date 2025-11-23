@@ -19,9 +19,10 @@ const Navbar = () => {
         <li className="neumorphic-button px-4 py-2 hover:scale-[1.04] active:scale-95 transition">
           <Link to={"/project"}>Projects</Link>
         </li>
-        <li className="neumorphic-button px-4 py-2 hover:scale-[1.04] active:scale-95 transition">
+        <a href="#contact-section"><li className="neumorphic-button px-4 py-2 hover:scale-[1.04] active:scale-95 transition">
           Contact
         </li>
+        </a>
       </ul>
     </nav>
   );
