@@ -1,0 +1,5 @@
+{
+  "ignoreCommand": "echo 'Ignoring backend folder'",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
+}
