@@ -12,7 +12,7 @@
   <a href="https://hackclub.com" target="_blank">
     <img src="https://img.shields.io/badge/HackClub-Built%20for%20the%20Community-ec3750?style=for-the-badge" />
   </a>
-  <a href="https://ahmadsiddique.vercel.app">
+  <a href="https://ahmadsiddique-dev.vercel.app/">
     <img src="https://img.shields.io/badge/Live%20Portfolio-Visit%20Now-2ea44f?style=for-the-badge" />
   </a>
 </p>
