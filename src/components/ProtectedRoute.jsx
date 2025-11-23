@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children }) => {
   const [userData, setUserData] = useState([])
 
   useEffect(() => {
-    axios.post("http://localhost:8000/api/v1/dashboard", {}, { withCredentials: true })
+    axios.post(`${import.meta.env.VITE_B_URL}/dashboard`, {}, { withCredentials: true })
       .then((res) => {
         if (res.data.success) {
           setAuthorized(true)
