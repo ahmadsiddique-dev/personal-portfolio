@@ -10,7 +10,6 @@ const ProtectedRoute = ({ children }) => {
   useEffect(() => {
       axios.post(`${import.meta.env.VITE_B_URL}/dashboard`, {}, { withCredentials: true })
       .then((res) => {
-        console.log(res)
         if (res.data.success) {
           setAuthorized(true)
           setUserData(res.data.data)
