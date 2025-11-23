@@ -158,7 +158,7 @@ const loginController = async (req, res) => {
     {
       httpOnly : true,
       secure : true,
-      sameSite : "strict",
+      sameSite : "None",
       maxAge : Number(process.env.REFRESH_TOKEN_EXPIRY) || 30 * 24 * 60 * 60 * 1000,
     }
   )

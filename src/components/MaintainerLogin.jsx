@@ -13,29 +13,29 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-const onSubmit = async (data) => {
-  setLoading(true);
+  const onSubmit = async (data) => {
+    setLoading(true);
 
-  try {
-    const response = await axios.post(
-      `${import.meta.env.VITE_B_URL}/login`,
-      {
-        username: data.username,
-        password: data.password,
-      },
-      { withCredentials: true } 
-    );
-    
-    if (response.status === 200) {
-      navigate("/dashboard", { replace: true }); 
-    }
-  } catch (error) {
-    console.error("Login error:", error);
-  } finally {
-    setLoading(false);
-  }
-};
-
+    axios
+      .post(
+        `${import.meta.env.VITE_B_URL}/login`,
+        {
+          username: data.username,
+          password: data.password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        navigate("/dashboard")
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error("Login error:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="bg-gray-100 flex items-center justify-center min-h-screen">

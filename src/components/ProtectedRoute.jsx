@@ -8,14 +8,18 @@ const ProtectedRoute = ({ children }) => {
   const [userData, setUserData] = useState([])
 
   useEffect(() => {
-    axios.post(`${import.meta.env.VITE_B_URL}/dashboard`, {}, { withCredentials: true })
+      axios.post(`${import.meta.env.VITE_B_URL}/dashboard`, {}, { withCredentials: true })
       .then((res) => {
+        console.log(res)
         if (res.data.success) {
           setAuthorized(true)
           setUserData(res.data.data)
         };
       })
-      .catch(() => setAuthorized(false))
+      .catch((error) => {
+        setAuthorized(false)
+        console.log("Error",error)
+      })
       .finally(() => setLoading(false));
   }, []);
 
